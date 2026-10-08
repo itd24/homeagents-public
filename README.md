@@ -13,12 +13,12 @@ so it can be read, installed and updated on its own.
 
 | Repository | What it is |
 |---|---|
-| [`homeagents-core`](../homeagents-core) | The platform itself: LiteLLM gateway, Qdrant and TEI memory, SearXNG web search, Firefly III MCP, OpenHands, plus the shared `.env` and `VOLUMES/` data root |
-| [`homeagents-cli`](../homeagents-cli) | A thin PowerShell runner. `homeagents <stage> <command>` starts and stops each stack |
-| [`librechat-deployment`](../librechat-deployment) | The chat front end, wired to LiteLLM with profiles, personas and MCP tools |
-| [`dify-deployment`](../dify-deployment) | Dify, for visual LLM app and workflow building |
-| [`homeagents-mcp-servers`](../homeagents-mcp-servers) | Two custom Model Context Protocol servers: `qdrant-mcp` for memory and `web-search-mcp` for SearXNG and Tavily |
-| [`paperless-qdrant-ingestion`](../paperless-qdrant-ingestion) | A one-shot worker that indexes OCR'd Paperless-ngx documents into the shared vector memory |
+| [`homeagents-core`](https://github.com/itd24/homeagents-core) | The platform itself: LiteLLM gateway, Qdrant and TEI memory, SearXNG web search, Firefly III MCP, OpenHands, plus the shared `.env` and `VOLUMES/` data root |
+| [`homeagents-cli`](https://github.com/itd24/homeagents-cli) | A thin PowerShell runner. `homeagents <stage> <command>` starts and stops each stack |
+| [`librechat-deployment`](https://github.com/itd24/librechat-deployment) | The chat front end, wired to LiteLLM with profiles, personas and MCP tools |
+| [`dify-deployment`](https://github.com/itd24/dify-deployment) | Dify, for visual LLM app and workflow building |
+| [`homeagents-mcp-servers`](https://github.com/itd24/homeagents-mcp-servers) | Two custom Model Context Protocol servers: `qdrant-mcp` for memory and `web-search-mcp` for SearXNG and Tavily |
+| [`paperless-qdrant-ingestion`](https://github.com/itd24/paperless-qdrant-ingestion) | A one-shot worker that indexes OCR'd Paperless-ngx documents into the shared vector memory |
 
 Clone them side by side. The CLI and the compose files expect that layout:
 
@@ -79,24 +79,24 @@ their upstream port mappings.
 
 | Port | Service | Repository |
 |---|---|---|
-| 3000 | OpenHands | homeagents-core |
-| 3002 | Firefly III MCP | homeagents-core |
-| 3080 | LibreChat | librechat-deployment |
-| 4000 | LiteLLM gateway | homeagents-core |
-| 6333 | Qdrant | homeagents-core |
-| 8081 | TEI embeddings | homeagents-core |
-| 8082 | SearXNG | homeagents-core |
-| 8085 | Dify console | dify-deployment |
-| 8765 | qdrant-mcp | homeagents-core |
+| 3000 | OpenHands | [homeagents-core](https://github.com/itd24/homeagents-core) |
+| 3002 | Firefly III MCP | [homeagents-core](https://github.com/itd24/homeagents-core) |
+| 3080 | LibreChat | [librechat-deployment](https://github.com/itd24/librechat-deployment) |
+| 4000 | LiteLLM gateway | [homeagents-core](https://github.com/itd24/homeagents-core) |
+| 6333 | Qdrant | [homeagents-core](https://github.com/itd24/homeagents-core) |
+| 8081 | TEI embeddings | [homeagents-core](https://github.com/itd24/homeagents-core) |
+| 8082 | SearXNG | [homeagents-core](https://github.com/itd24/homeagents-core) |
+| 8085 | Dify console | [dify-deployment](https://github.com/itd24/dify-deployment) |
+| 8765 | qdrant-mcp | [homeagents-core](https://github.com/itd24/homeagents-core) |
 
 ## Getting started
 
 ```powershell
-# Clone the six repositories side by side (replace <your-user>).
+# Clone the six repositories side by side.
 foreach ($repo in 'homeagents-core', 'homeagents-cli', 'homeagents-mcp-servers',
                   'librechat-deployment', 'dify-deployment',
                   'paperless-qdrant-ingestion') {
-    git clone "https://github.com/<your-user>/$repo.git"
+    git clone "https://github.com/itd24/$repo.git"
 }
 
 # Provider keys and host paths go into one file.
